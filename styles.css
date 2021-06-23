@@ -7,6 +7,9 @@
 a {
   text-decoration: none;
 }
+ul {
+  list-style: none;
+}
 img {
   width: 100%;
   height: auto;
@@ -17,7 +20,7 @@ img {
   --header-height: 4.5rem;
 
   /* colors */
-  --hue: 159;
+  --hue: 200;
   /* HSL color mode */
   --base-color: hsl(var(--hue) 36% 57%);
   --base-color-second: hsl(var(--hue) 65% 88%);
@@ -28,14 +31,17 @@ img {
   --body-color: hsl(0 0% 98%);
 }
 
-/* ================================= BASE =================================== */
+/* ================================ BASE ==================================== */
+html {
+  scroll-behavior: smooth;
+}
 body {
   font: 400 1rem 'DM Sans', sans-serif;
   background: var(--body-color);
   color: var(--text-color);
   -webkit-font-smoothing: antialiased;
 }
-h1 {
+.title {
   font: 700 1.875rem 'Poppins', sans-serif;
   color: var(--title-color);
   -webkit-font-smoothing: auto;
@@ -54,16 +60,26 @@ h1 {
 .button:hover {
   background: var(--base-color-alt);
 }
+
+/* ================================ DIVIDER ================================= */
 .divider-1 {
   height: 1px;
   background: linear-gradient(
     270deg,
-    hsla(var(--hue), 36%, 57%, 1) 0%,
-    hsla(var(--hue), 65%, 88%, 0, 34) 100%
+    hsla(var(--hue), 36%, 57%, 1),
+    hsla(var(--hue), 65%, 88%, 0, 34)
+  );
+}
+.divider-2 {
+  height: 1px;
+  background: linear-gradient(
+    270deg,
+    hsla(var(--hue), 65%, 88%, 0, 34),
+    hsla(var(--hue), 36%, 57%, 1)
   );
 }
 
-/* ============================= LAYOUT ===================================== */
+/* =============================== LAYOUT =================================== */
 .container {
   margin-left: 1.5rem;
   margin-right: 1.5rem;
@@ -75,18 +91,44 @@ h1 {
 .section {
   padding: 5rem 0;
 }
+.section .title {
+  margin-bottom: 1rem;
+}
+.section header {
+  margin-bottom: 4rem;
+}
+.section header strong {
+  color: var(--base-color);
+}
 #header {
   border-bottom: 1px solid #e4e4e4;
   margin-bottom: 2rem;
   display: flex;
 
-  width: 100%;
   position: fixed;
+  width: 100%;
   top: 0;
   left: 0;
   z-index: 100;
   background-color: var(--body-color);
 }
+#header.scroll {
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
+}
+main {
+  margin-top: calc(var(--header-height) + 2rem);
+}
+
+/* ================================ LOGO ==================================== */
+.logo {
+  font: 700 1.3rem 'Poppins', sans-serif;
+  color: var(--title-color);
+}
+.logo-span {
+  color: var(--base-color);
+}
+
+/* =============================== NAVIGATION ================================*/
 nav {
   height: var(--header-height);
   display: flex;
@@ -94,20 +136,91 @@ nav {
   align-items: center;
   width: 100%;
 }
-.logo {
-  font: 700 1.31rem 'Poppins', sans-serif;
-  color: var(--title-color);
+nav ul li {
+  text-align: center;
 }
-.logo-span {
+nav ul li a {
+  position: relative;
+  transition: 0.2s;
+}
+nav ul li a:hover {
   color: var(--base-color);
 }
-main {
-  margin-top: var(--header-height);
+nav ul li a::after {
+  content: '';
+  height: 2px;
+  width: 0%;
+  background: var(--base-color);
+
+  position: absolute;
+  bottom: -1rem;
+  left: 0;
+
+  transition: width 0.4s;
+}
+nav ul li a:hover::after {
+  width: 100%;
+}
+nav .menu {
+  opacity: 0;
+  visibility: hidden;
+
+  top: -10rem;
+  transition: 0.3s;
+}
+nav .menu ul {
+  display: none;
+}
+/* mostrar o menu */
+nav.show .menu {
+  display: grid;
+  place-content: center;
+
+  opacity: 1;
+  visibility: visible;
+
+  background: var(--body-color);
+
+  height: 100vh;
+  width: 100vw;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+nav.show .menu ul {
+  display: grid;
+}
+nav.show ul.grid {
+  gap: 4rem;
+}
+/* toggle menu */
+.toggle {
+  color: var(--base-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+nav div.icon-close {
+  visibility: hidden;
+  opacity: 0;
+
+  position: absolute;
+  top: -1.5rem;
+  right: 1.5rem;
+
+  transition: 0.3s;
+}
+nav.show div.icon-close {
+  visibility: visible;
+  opacity: 1;
+
+  top: 1.5rem;
 }
 
-/* ============================= HOME ======================================= */
+/* ================================= HOME =================================== */
 #home {
   overflow: hidden;
+  background: var(--body-color);
 }
 #home .container {
   margin: 0;
@@ -144,4 +257,74 @@ main {
 #home .text p {
   margin-bottom: 2rem;
   max-width: 100%;
+}
+
+/* ================================= ABOUT ================================== */
+#about {
+  background: #ffffff;
+}
+#about .container {
+  margin: 0;
+}
+#about .image {
+  position: relative;
+}
+#about .image::before {
+  content: '';
+  height: 100%;
+  width: 100%;
+  background: var(--base-color-second);
+  position: absolute;
+  top: -8.3%;
+  left: -33%;
+  z-index: 0;
+}
+#about .image img {
+  position: relative;
+}
+#about .image img,
+#about .image::before {
+  border-radius: 0.25rem;
+}
+#about .text {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+/* ================================= SERVICES =============================== */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 20.437rem;
+  height: 23.25rem;
+  padding: 3.625rem 2rem;
+
+  border: 1px solid #f9f9f9;
+  border-bottom: 4px solid var(--base-color);
+  border-radius: 0.25rem 0.25rem 0 0;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.08);
+}
+.card i {
+  display: block;
+  margin-bottom: 1.5rem;
+  font-size: 5rem;
+  color: var(--base-color);
+}
+.card .title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 2rem;
+  color: var(--title-color);
+  margin-bottom: 0.75rem;
+}
+.card p {
+  font: 400;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: #767676;
 }
