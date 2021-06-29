@@ -10,6 +10,11 @@
       href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
+    <!-------------------------- SWIPER ---------------------------------------->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
     <!--------------------------- ICONS --------------------------------------->
     <link rel="stylesheet" href="assets/style.css" />
     <!--------------------------- STYLES -------------------------------------->
@@ -17,6 +22,7 @@
     <title>OriginSix</title>
   </head>
   <body>
+    <!--============================ HEADER =================================-->
     <header id="header" class="scroll">
       <nav class="container">
         <a class="logo" href="#">
@@ -29,7 +35,7 @@
             <li><a class="title" href="#home">Home</a></li>
             <li><a class="title" href="#about">Sobre</a></li>
             <li><a class="title" href="#services">Serviços</a></li>
-            <li><a class="title" href="#testemonials">Depoimentos</a></li>
+            <li><a class="title" href="#testimonials">Depoimentos</a></li>
             <li><a class="title" href="#contact">Contato</a></li>
           </ul>
         </div>
@@ -39,6 +45,7 @@
     </header>
 
     <main>
+      <!--======================== HOME =====================================-->
       <section class="section" id="home">
         <div class="container grid">
           <div class="image">
@@ -55,8 +62,8 @@
         </div>
       </section>
       <div class="divider-1"></div>
-      <!-------------------------- DIVIDER-01 --------------------------------->
 
+      <!--======================== SOBRE ====================================-->
       <section class="section" id="about">
         <div class="container grid">
           <div class="image">
@@ -87,10 +94,9 @@
           </div>
         </div>
       </section>
-
       <div class="divider-2"></div>
-      <!-------------------------- DIVIDER-02 --------------------------------->
 
+      <!--======================== SERVIÇOS =================================-->
       <section class="section" id="services">
         <div class="container grid">
           <header>
@@ -130,9 +136,144 @@
           </div>
         </div>
       </section>
+      <div class="divider-1"></div>
+
+      <!--======================= DEPOIMENTOS ===============================-->
+      <section class="section" id="testimonials">
+        <div class="container">
+          <header class="title">
+            <h2>Depoimentos de quem já passou por aqui</h2>
+          </header>
+
+          <div class="testimonials swiper-container">
+            <div class="swiper-wrapper">
+              <!-- DEPOIMENTO 01 -->
+              <div class="testimonial swiper-slide">
+                <blockquote>
+                  <p>
+                    <span>&ldquo;</span> Eu sou cliente do Beautysalon há 5 anos
+                    e não troco por nada! Certamente meu cabelo mudou muito
+                    depois que comecei a tratar somente com produtos naturais e
+                    veganos. São profissionais incríveis e qualificados.
+                  </p>
+                  <cite>
+                    <img
+                      src="assets/images/profile_face.jpg"
+                      alt="Mike Fernando"
+                    />
+                    Mike Fernando
+                  </cite>
+                </blockquote>
+              </div>
+
+              <!-- DEPOIMENTO 02 -->
+              <div class="testimonial swiper-slide">
+                <blockquote>
+                  <p>
+                    <span>&ldquo;</span> Eu sou cliente do Beautysalon há 5 anos
+                    e não troco por nada! Certamente meu cabelo mudou muito
+                    depois que comecei a tratar somente com produtos naturais e
+                    veganos. São profissionais incríveis e qualificados.
+                  </p>
+                  <cite>
+                    <img
+                      src="assets/images/fernanda.jpg"
+                      alt="Foto de Fernanda Fagundes"
+                    />
+                    Fernanda Fagundes
+                  </cite>
+                </blockquote>
+              </div>
+
+              <!-- DEPOIMENTO 03 -->
+              <div class="testimonial swiper-slide">
+                <blockquote>
+                  <p>
+                    <span>&ldquo;</span> Eu sou cliente do Beautysalon há 5 anos
+                    e não troco por nada! Certamente meu cabelo mudou muito
+                    depois que comecei a tratar somente com produtos naturais e
+                    veganos. São profissionais incríveis e qualificados.
+                  </p>
+                  <cite>
+                    <img
+                      src="assets/images/gabriel.jpg"
+                      alt="foto de Gabriel Pereira"
+                    />
+                    Gabriel Pereira
+                  </cite>
+                </blockquote>
+              </div>
+            </div>
+            <!-- PAGINATION -->
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </section>
+      <div class="divider-2"></div>
+
+      <!--======================= CONTACT ===================================-->
+      <section class="section" id="contact">
+        <div class="container grid">
+          <header class="title">
+            <h2>Entre em contato com a gente!</h2>
+          </header>
+
+          <p>
+            Entre em contato com a Beautysalon, queremos tirar suas dúvidas,
+            ouvir suas críticas e sugestões.
+          </p>
+
+          <a
+            href="https//api.whatsapp.com/send?phone=CODIGOPAISDDDNUMERO&text=SUA MENSAGEM AQUI"
+            class="whatsapp-button"
+          >
+            <i class="icon-whatsapp svg"></i>
+            <span>Entrar em contato</span>
+          </a>
+
+          <div class="contact-info grid">
+            <a href="#">
+              <i class="icon-phone"></i>
+              <span>11 99845-6754</span>
+            </a>
+            <a href="#">
+              <i class="icon-map-pin"></i>
+              <span>R. Amauri Souza, 346</span>
+            </a>
+            <a href="#">
+              <i class="icon-mail"></i>
+              <span>contato@beautysalon.com</span>
+            </a>
+          </div>
+        </div>
+      </section>
     </main>
 
+    <!--======================= FOOTER ===================================-->
+    <footer>
+      <div class="container">
+        <div class="brand">
+          <span class="title">beauty<span class="salon">salon</span>.</span>
+
+          <p>&copy;2021 Beautysalon.</p>
+          <p>Todos os direitos reservados.</p>
+        </div>
+
+        <div class="social">
+          <a href="https:instagram.com" target="_blank"
+            ><i class="icon-instagram"></i
+          ></a>
+          <a href="https:facebook.com" target="_blank"
+            ><i class="icon-facebook"></i
+          ></a>
+          <a href="https:youtube.com" target="_blank"
+            ><i class="icon-youtube"></i
+          ></a>
+        </div>
+      </div>
+    </footer>
     <!----------------------------- SCRIPTS --------------------------------->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="main.js"></script>
   </body>
 </html>
